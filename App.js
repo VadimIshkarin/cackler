@@ -7,39 +7,42 @@ import "react-native-gesture-handler";
 // import react Navigation
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, View } from "react-native";
-export default class HelloWorld extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.box1}></View>
-        <View style={styles.box2}></View>
-        <View style={styles.box3}></View>
-      </View>
-    );
-  }
-}
+// import { StyleSheet, View } from "react-native";
+
 // Create the navigator
 const Stack = createStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column", //"row" "row-reverse" "column-reverse"
-  },
-  box1: {
-    flex: 45,
-    backgroundColor: "green",
-  },
-  box2: {
-    flex: 50,
-    backgroundColor: "pink",
-  },
-  box3: {
-    flex: 50,
-    backgroundColor: "white",
-  },
-});
+export default class App extends Component {
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Screen1">
+          <Stack.Screen name="Screen1" component={Screen1} />
+          <Stack.Screen name="Screen2" component={Screen2} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+}
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     flexDirection: "column", "row" "row-reverse" "column-reverse"
+//   },
+//   box1: {
+//     flex: 45,
+//     backgroundColor: "green",
+//   },
+//   box2: {
+//     flex: 50,
+//     backgroundColor: "pink",
+//   },
+//   box3: {
+//     flex: 50,
+//     backgroundColor: "white",
+//   },
+// });
 // import { StatusBar } from "expo-status-bar";
 // import { StyleSheet, Text, View } from "react-native";
 
