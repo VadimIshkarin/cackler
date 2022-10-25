@@ -1,4 +1,12 @@
 import React, { Component } from "react";
+// import the screens
+import Screen1 from "./components/Screen1";
+import Screen2 from "./components/Screen2";
+// import react native gesture handler
+import "react-native-gesture-handler";
+// import react Navigation
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, View } from "react-native";
 export default class HelloWorld extends Component {
   render() {
@@ -11,6 +19,8 @@ export default class HelloWorld extends Component {
     );
   }
 }
+// Create the navigator
+const Stack = createStackNavigator();
 
 const styles = StyleSheet.create({
   container: {
