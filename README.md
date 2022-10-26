@@ -20,6 +20,8 @@ This ChiChat app was built for mobile devices using React Native. The app will p
 - A page where users can enter their name and choose a background color for the chitchat screen before joining the chitchat
 - A page displaying the conversation, as well as an input field and submit button
 
+https://user-images.githubusercontent.com/98603573/198075642-c33be12e-84d5-47db-bc65-5f4a268305b2.mov
+
 ### How to run the app
 
 - To launch the ChitChat app run expo start or npm start
