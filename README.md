@@ -1,6 +1,6 @@
 ## React Native ChitChat App
 
-<img src="/img/ChitChat-img.PNG" alt="Alt text" style="display: inline-block; margin: 0 auto; max-width: 800px">
+<img src="/img/ChitChat-img.PNG" alt="Alt text" style="display: inline-block; margin: 0 auto; max-width: 500px">
 
 ### Description
 
