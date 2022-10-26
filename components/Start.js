@@ -1,87 +1,158 @@
-import React from "react";
+// import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
   Text,
-  Button,
+  Pressable,
+  TouchableOpacity,
   TextInput,
   ImageBackground,
 } from "react-native";
-import backgroundStartImage from "../assets/img-background.png";
+import BackgroundImage from "../assets/img-background.png";
 
-export default class Start extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { name: "" };
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <ImageBackground source={backgroundStartImage} style={styles.image}>
-          <View
-            style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-          >
-            <Text style={styles.blue}>Welcome to Chitchat!</Text>
-            <TextInput
-              style={{
-                height: 50,
-                width: 150,
-                borderColor: "black",
-                borderWidth: 2,
-                fontWeight: "600",
-                fontSize: 20,
-                color: "black",
-              }}
-              onChangeText={(name) => this.setState({ name })}
-              value={this.state.name}
-              placeholder="Type here ..."
+// Create background colors for Chat Screen
+const colors = {
+  blue: "#3e70c0",
+  green: "#6dddae",
+  purple: "#474056",
+  yellow: "#f6f65f",
+};
+
+export default function Start(props) {
+  let [name, setName] = useState();
+  let [color, setColor] = useState();
+
+  // export default class Start extends React.Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = { name: "" };
+  //   }
+
+  return (
+    <View style={styles.container}>
+      <ImageBackground
+        source={BackgroundImage}
+        resizeMode="cover"
+        style={styles.image}
+      >
+        <Text style={styles.title}>Welcome to ChitChat</Text>
+
+        <View style={styles.box}>
+          {/* Input box to set user name passed to chat screen */}
+          <TextInput
+            onChangeText={(name) => setName(name)}
+            value={name}
+            style={styles.input}
+            placeholder="Type your name..."
+          />
+
+          {/* Allow user to choose a background color for the chat screen */}
+          <Text style={styles.text}>Choose Background Color:</Text>
+          <View style={styles.colorContainer}>
+            <TouchableOpacity
+              style={[{ backgroundColor: colors.blue }, styles.colorbutton]}
+              onPress={() => setColor(colors.blue)}
             />
-
-            <Button
-              title="Go to Chat"
-              onPress={() =>
-                this.props.navigation.navigate("Chat", {
-                  name: this.state.name,
-                })
-              }
+            <TouchableOpacity
+              style={[{ backgroundColor: colors.green }, styles.colorbutton]}
+              onPress={() => setColor(colors.green)}
+            />
+            <TouchableOpacity
+              style={[{ backgroundColor: colors.purple }, styles.colorbutton]}
+              onPress={() => setColor(colors.purple)}
+            />
+            <TouchableOpacity
+              style={[{ backgroundColor: colors.yellow }, styles.colorbutton]}
+              onPress={() => setColor(colors.yellow)}
             />
           </View>
-        </ImageBackground>
-      </View>
-    );
-  }
+
+          {/* Open chatroom, passing user name and background color as props */}
+          <Pressable
+            onPress={() =>
+              props.navigation.navigate("Chat", { name: name, color: color })
+            }
+            style={({ pressed }) => [
+              {
+                backgroundColor: pressed ? "#357b70" : "#489c79",
+              },
+              styles.button,
+            ]}
+          >
+            <Text style={styles.buttontext}>Let's ChitChat</Text>
+          </Pressable>
+        </View>
+      </ImageBackground>
+    </View>
+  );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  //The demension of the background image according to the project brief
+
   image: {
     flex: 1,
-    resizeMode: "cover",
     flexDirection: "column",
+    justifyContent: "space-evenly",
     alignItems: "center",
   },
-  blue: {
-    color: "blue",
-    fontSize: 23,
+
+  title: {
+    fontSize: 45,
+    fontWeight: "600",
+    color: "#ffffff",
+  },
+
+  box: {
+    width: "88%",
+    backgroundColor: "white",
+    alignItems: "center",
+    height: "44%",
+    justifyContent: "space-evenly",
+  },
+
+  input: {
+    height: 50,
+    width: "88%",
+    fontSize: 16,
+    fontWeight: "300",
+    color: "#757083",
+    borderColor: "gray",
+    borderWidth: 1,
+    paddingHorizontal: 10,
+  },
+
+  text: {
+    color: "#757083",
+    fontSize: 16,
+    fontWeight: "300",
+  },
+
+  colorContainer: {
+    width: "88%",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+
+  colorbutton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
+
+  button: {
+    height: 50,
+    width: "88%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  buttontext: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     flexDirection: "column", "row" "row-reverse" "column-reverse"
-//   },
-//   box1: {
-//     flex: 45,
-//     backgroundColor: "green",
-//   },
-//   box2: {
-//     flex: 50,
-//     backgroundColor: "pink",
-//   },
-//   box3: {
-//     flex: 50,
-//     backgroundColor: "white",
-//   },
-// });
