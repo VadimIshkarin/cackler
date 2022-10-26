@@ -13,10 +13,10 @@ import BackgroundImage from "../assets/img-background.png";
 
 // Create background colors for Chat Screen
 const colors = {
-  blue: "#3e70c0",
+  red: "#bb163f",
   green: "#6dddae",
   purple: "#474056",
-  yellow: "#f6f65f",
+  yellow: "#ebf306eb",
 };
 
 export default function Start(props) {
@@ -36,7 +36,7 @@ export default function Start(props) {
         resizeMode="cover"
         style={styles.image}
       >
-        <Text style={styles.title}>Welcome to ChitChat</Text>
+        <Text style={styles.title}>Welcome ChitChat</Text>
 
         <View style={styles.box}>
           {/* Input box to set user name passed to chat screen */}
@@ -48,11 +48,11 @@ export default function Start(props) {
           />
 
           {/* Allow user to choose a background color for the chat screen */}
-          <Text style={styles.text}>Choose Background Color:</Text>
+          <Text style={styles.text}>Choose ChitChat Color:</Text>
           <View style={styles.colorContainer}>
             <TouchableOpacity
-              style={[{ backgroundColor: colors.blue }, styles.colorbutton]}
-              onPress={() => setColor(colors.blue)}
+              style={[{ backgroundColor: colors.red }, styles.colorbutton]}
+              onPress={() => setColor(colors.red)}
             />
             <TouchableOpacity
               style={[{ backgroundColor: colors.green }, styles.colorbutton]}
