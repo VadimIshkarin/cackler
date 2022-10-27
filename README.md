@@ -1,7 +1,4 @@
 ## React Native ChitChat App
-
-<img src="/img/chit-chat-img.png" alt="Alt text" style="display: inline-block; margin: 0 auto; max-width: 800px">
-
 ### Description
 
 This ChiChat app was built for mobile devices using React Native. The app will provide users with a chat interface and options to send messages, share images and their location
