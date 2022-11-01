@@ -1,4 +1,5 @@
 ## React Native ChitChat App
+
 ### Description
 
 This ChiChat app was built for mobile devices using React Native. The app will provide users with a chat interface and options to send messages, share images and their location
@@ -17,7 +18,7 @@ This ChiChat app was built for mobile devices using React Native. The app will p
 - A page where users can enter their name and choose a background color for the chitchat screen before joining the chitchat
 - A page displaying the conversation, as well as an input field and submit button
 
-https://user-images.githubusercontent.com/98603573/198413678-fe0033f4-deab-4560-b417-b471012c781e.mov
+https://user-images.githubusercontent.com/98603573/199306798-3dd1584b-ab4f-4f75-838c-de712d5b6a2a.mov
 
 ### How to run the app
 
