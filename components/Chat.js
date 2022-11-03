@@ -235,6 +235,8 @@ export default class Chat extends React.Component {
             renderInputToolbar={this.renderInputToolbar.bind(this)}
             messages={this.state.messages}
             onSend={(messages) => this.onSend(messages)}
+            renderActions={this.renderCustomActions}
+            renderCustomView={this.renderCustomView}
             user={{
               _id: this.state.user._id,
             }}
