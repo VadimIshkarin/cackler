@@ -6,7 +6,11 @@ const firebase = require("firebase");
 require("firebase/firestore");
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import NetInfo from "@react-native-community/netinfo";
-
+import * as Permissions from "expo-permissions";
+import * as ImagePicker from "expo-image-picker";
+import * as Location from "expo-location";
+import MapView from "react-native-maps";
+import CustomActions from "./CustomActions";
 export default class Chat extends React.Component {
   constructor() {
     super();
@@ -18,6 +22,8 @@ export default class Chat extends React.Component {
         name: " ",
       },
       isConnected: false,
+      image: null,
+      location: null,
     };
 
     const firebaseConfig = {
@@ -192,6 +198,30 @@ export default class Chat extends React.Component {
     } else {
       return <InputToolbar {...props} />;
     }
+  }
+
+  // Returns a mapview when user adds a location to current message
+  renderCustomView(props) {
+    const { currentMessage } = props;
+    if (currentMessage.location) {
+      return (
+        <MapView
+          style={{ width: 150, height: 100, borderRadius: 13, margin: 3 }}
+          region={{
+            latitude: currentMessage.location.latitude,
+            longitude: currentMessage.location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
+      );
+    }
+    return null;
+  }
+
+  // action button to access communication features via an action sheet
+  renderCustomActions(props) {
+    return <CustomActions {...props} />;
   }
 
   render() {
