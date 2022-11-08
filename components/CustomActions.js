@@ -13,6 +13,7 @@ export default class CustomActions extends React.Component {
   pickImage = async () => {
     // permission to access the user phone pics
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    console.log("Status from pickImage: ", { status });
     try {
       if (status === "granted") {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -20,9 +21,11 @@ export default class CustomActions extends React.Component {
         }).catch((error) => {
           console.log(error);
         });
+        console.log("Result: ", result);
         if (!result.cancelled) {
           const imageUrl = await this.uploadImage(result.uri);
           this.props.onSend({ image: imageUrl });
+          console.log("from pickImage function: ", { image });
         }
       }
     } catch (error) {
