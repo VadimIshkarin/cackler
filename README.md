@@ -2,7 +2,7 @@
 
 ### Description
 
-This ChiChat app was built for mobile devices using React Native. The app will provide users with a chat interface and options to send messages, share images and their location
+This ChitChat app was built for mobile devices using React Native. The app provides users with a chat interface and options to send messages, share images and their location
 
 ### Dependencies
 
